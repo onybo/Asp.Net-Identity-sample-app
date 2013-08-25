@@ -363,9 +363,7 @@ namespace WebApplication.Controllers
 
             public override void ExecuteResult(ControllerContext context)
             {
-                // todo: figure out how to properly call this, not sure if the following actually works.
-                HttpContextBaseExtensions.GetOwinContext(context.HttpContext).Authentication.Challenge(LoginProvider, RedirectUrl);
-                //Manager.Challenge(context.HttpContext, LoginProvider, RedirectUrl);
+                HttpContextBaseExtensions.GetOwinContext(context.HttpContext).Authentication.Challenge(new AuthenticationProperties{ RedirectUrl = RedirectUrl}, LoginProvider);
             }
         }
         
