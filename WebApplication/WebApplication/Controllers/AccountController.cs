@@ -65,6 +65,10 @@ namespace WebApplication.Controllers
                 {
                     return RedirectToLocal(returnUrl);
                 }
+                else
+                {
+                    AddModelError(result);
+                }
             }
 
             // If we got this far, something failed, redisplay form
@@ -101,7 +105,7 @@ namespace WebApplication.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("", "Failed to register user name: " + model.UserName);
+                        AddModelError(result, "Failed to register user name: " + model.UserName);
                     }
             }
 
@@ -161,7 +165,7 @@ namespace WebApplication.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
+                        AddModelError(changePasswordSucceeded, "The current password is incorrect or the new password is invalid");
                     }
                 }
             }
@@ -186,7 +190,7 @@ namespace WebApplication.Controllers
                         }
                         else
                         {
-                            ModelState.AddModelError("", "Failed to set password");
+                            AddModelError(result, "Failed to set password");
                         }
                     }
                     catch (Exception e)
@@ -198,6 +202,14 @@ namespace WebApplication.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        private void AddModelError(IdentityResult result, string message = "")
+        {
+            foreach (var error in result.Errors)
+                ModelState.AddModelError("", error);
+            if (!string.IsNullOrWhiteSpace(message))
+                ModelState.AddModelError("", message);
         }
 
         //
@@ -226,7 +238,7 @@ namespace WebApplication.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string loginProvider, string returnUrl)
         {
-            ClaimsIdentity id = await OwinAuthManager.Authentication);
+            var id = await AuthenticationManager.GetExternalIdentityAsync(OwinAuthManager);
             if (!VerifyExternalIdentity(id, loginProvider))
             {
                 return View("ExternalLoginFailure");
