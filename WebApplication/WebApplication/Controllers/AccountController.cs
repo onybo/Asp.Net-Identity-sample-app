@@ -226,14 +226,14 @@ namespace WebApplication.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string loginProvider, string returnUrl)
         {
-            ClaimsIdentity id = await AuthenticationManager.GetExternalIdentityAsync(HttpContextBaseExtensions.GetOwinContext(HttpContext).Authentication);
+            ClaimsIdentity id = await OwinAuthManager.Authentication);
             if (!VerifyExternalIdentity(id, loginProvider))
             {
                 return View("ExternalLoginFailure");
             }
 
             // Sign in this external identity if its already linked
-            var result = await AuthenticationManager.SignInExternalIdentityAsync(HttpContextBaseExtensions.GetOwinContext(HttpContext).Authentication, id);
+            var result = await AuthenticationManager.SignInExternalIdentityAsync(OwinAuthManager, id);
             if (result.Success)
             {
                 return RedirectToLocal(returnUrl);
@@ -273,7 +273,7 @@ namespace WebApplication.Controllers
             if (ModelState.IsValid)
             {
                 // Get the information about the user from the external login provider
-                    if ((await AuthenticationManager.CreateAndSignInExternalUserAsync(HttpContextBaseExtensions.GetOwinContext(HttpContext).Authentication, new User(model.UserName))).Success)
+                if ((await AuthenticationManager.CreateAndSignInExternalUserAsync(OwinAuthManager, new User(model.UserName))).Success)
                     {
                         return RedirectToLocal(returnUrl);
                     }
@@ -293,7 +293,7 @@ namespace WebApplication.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            HttpContextBaseExtensions.GetOwinContext(HttpContext).Authentication.SignOut(new string[0]);
+            OwinAuthManager.SignOut(new string[0]);
             return RedirectToAction("Index", "Home");
         }
 
@@ -311,7 +311,7 @@ namespace WebApplication.Controllers
         {
             ViewBag.ReturnUrl = returnUrl;
             return (ActionResult)PartialView("_ExternalLoginsListPartial", new List<AuthenticationDescription>(
-                HttpContextBaseExtensions.GetOwinContext(HttpContext).Authentication.GetExternalAuthenticationTypes()
+                OwinAuthManager.GetExternalAuthenticationTypes()
                 ));
         }
 
