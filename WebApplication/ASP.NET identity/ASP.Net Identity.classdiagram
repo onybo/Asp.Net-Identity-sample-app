@@ -1,25 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="1226584d-a357-4449-bbbd-1f3feada29b1" name="ASP.Net Identity" linkedPackageId="cb323cd6-ee68-4ec0-966f-6844f8dd42ee" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
-  <profileInstances>
-    <packageHasProfileInstances Id="0a002ecd-0909-42e0-95a1-d31664e0d9e4">
-      <profileInstance Id="d00f54e6-59e5-4c11-9f43-5470dd5903d6" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="3b1b5aa0-3470-450d-8f35-3ff3b5ea40ac">
-      <profileInstance Id="71861f95-4c42-4ba0-9f3a-d6fd19bb1064" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="a9613996-98e5-47a6-a9d2-8c59e4188114">
-      <profileInstance Id="beef6b24-bfc2-43b3-852d-7652e018c137" name="CSharpProfile">
-        <elementDefinition Id="3cc6d570-225d-4103-a6e3-4b86d3d30c31" />
-      </profileInstance>
-      <elementDefinition Id="729996f7-1566-4ac9-bd68-7e9a7fa8ef02" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <class Id="c68628e8-bdf1-4b03-a78a-8e0b7166cdc7" name="IdentityStore" isAbstract="false" isLeaf="false" isActiveClass="false">
@@ -7720,8 +7700,489 @@
         <elementDefinition Id="b6833cef-741a-4a7e-ba23-22d961bd4b92" />
       </referencedType>
     </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="a05c6551-eb9c-4c90-8ba7-206596361ec2" name="TokenManager" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <referencesInternal>
+          <reference Id="c69bf3b9-3c0a-438e-b5cd-c2275a92bffa" handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FOlav%2FSource%2FRepos%2FAsp.Net-Identity-RC1-sample-app%2FWebApplication%2Fpackages%2FMicrosoft.AspNet.Identity.Core.1.0.0-rc1%2Flib%2Fnet45%2FMicrosoft.AspNet.Identity.Core.dll Namespace%3DMicrosoft.AspNet.Identity Type%3DTokenManager" tag="ViewCode">
+            <elementDefinition Id="1aafd967-59d0-4b69-9d17-32b9f3c993e0" />
+          </reference>
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance Id="5c5587cd-cfc7-4a95-8919-a8b1dde55608" name="class" profile="CSharpProfile">
+            <elementDefinition Id="88e4d315-12ee-4670-aabb-bec9e305786b" />
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="8e6dcf7a-4619-41b4-a99a-f694191f9ada">
+                <propertyInstance Id="0e07c6f0-4840-4b9d-986f-9f50821a7640" name="ClrAttributes">
+                  <elementDefinition Id="eb63ea92-9f7d-4bb6-b6ec-f67870a33d13" />
+                </propertyInstance>
+                <elementDefinition Id="837a5a06-efab-4c47-bb55-1a58e194a6df" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="57ff3c8a-cc91-493d-bd15-36dc46b4d6d6">
+                <propertyInstance Id="bbbdaeab-3e4e-4d75-b784-b45496303a24" name="IsPartial" value="false">
+                  <elementDefinition Id="53b8929f-a1e0-4f5e-aca4-d3a451754ee6" />
+                </propertyInstance>
+                <elementDefinition Id="c37bbac6-3276-4492-81e5-9410cb813ac2" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="2bde2ad5-ef30-43d4-aa11-8345f1b575ee">
+                <propertyInstance Id="94ffa32d-f6ed-406b-8dbf-2f57f96f74e0" name="IsStatic" value="False">
+                  <elementDefinition Id="c4443a7a-f9f4-45cb-add1-2095c3314e5d" />
+                </propertyInstance>
+                <elementDefinition Id="36a3e1ae-22e4-4f08-80b8-28843c74c384" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="1e011c9f-4d83-4cb4-ae50-8febe06d8608">
+                <propertyInstance Id="6bf576b4-a570-4cbd-9428-cf210ec20649" name="IsUnsafe" value="false">
+                  <elementDefinition Id="a2a1ea2e-0375-4bf8-81e0-d67f1d123445" />
+                </propertyInstance>
+                <elementDefinition Id="97133dd5-f6b5-4253-a0e4-67bba6ca2213" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="9cd19c85-f50f-4f22-a94d-a3042aae4598">
+                <propertyInstance Id="9602492b-c986-4c39-8a4f-e5375f30d2c4" name="PackageVisibility" value="internal">
+                  <elementDefinition Id="852c35dc-93c0-4a2c-ac9d-8ad42eed933c" />
+                </propertyInstance>
+                <elementDefinition Id="2f279e75-0c7c-4d92-a92a-512ae37f8319" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <elementDefinition Id="2b3a3fe1-4624-4a1c-ae11-12a14f880bea" />
+        <ownedAttributesInternal>
+          <property Id="a5224e15-4b0a-4e8f-86fc-cd63ab8867f5" name="Store" isLeaf="false" isStatic="false" isReadOnly="true" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <referencesInternal>
+              <reference Id="b4c55dc0-872c-40d7-b05c-cb25a2473335" handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FOlav%2FSource%2FRepos%2FAsp.Net-Identity-RC1-sample-app%2FWebApplication%2Fpackages%2FMicrosoft.AspNet.Identity.Core.1.0.0-rc1%2Flib%2Fnet45%2FMicrosoft.AspNet.Identity.Core.dll Namespace%3DMicrosoft.AspNet.Identity Type%3DTokenManager Member%3DStore" tag="ViewCode">
+                <elementDefinition Id="75134e71-b6d7-4039-869c-1052e1a0aa9e" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="bc594597-7fe5-4a9e-9bfa-0cdf8e96b524" name="property" profile="CSharpProfile">
+                <elementDefinition Id="34a2fbb1-5eb7-4135-a2c1-1cd4d2ad6613" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="1e2a451c-a42a-47c9-8865-8391a23fe26a">
+                    <propertyInstance Id="364cd41a-92e9-4117-9a7d-10eab2751e5a" name="ClrAttributes">
+                      <elementDefinition Id="0ff67657-b716-48fd-8cea-7b9388b21677" />
+                    </propertyInstance>
+                    <elementDefinition Id="a3a6ec90-abfe-4ac7-8e5c-dfc7d37205a0" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="d17d10eb-e4f4-45af-ae97-abe283eac00a">
+                    <propertyInstance Id="c71152ec-2572-439a-bb26-40bc832efa3d" name="Get" value="none">
+                      <elementDefinition Id="a7e37de8-2fff-47df-a20d-84ec32822692" />
+                    </propertyInstance>
+                    <elementDefinition Id="c6ba3887-c6d7-4864-80c5-e75fe7f9a7c2" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="e54dc953-644b-48c2-8c37-2e529e1630d2">
+                    <propertyInstance Id="68bfcd74-92d8-4e46-a097-8019b7297b38" name="HasBody" value="false">
+                      <elementDefinition Id="3eacb10d-1c60-4d46-b6ad-895ade157405" />
+                    </propertyInstance>
+                    <elementDefinition Id="1baee835-82ab-4848-b7c9-0a6ccb16a997" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="4b93ff95-0ffa-4483-940c-68de9562030f">
+                    <propertyInstance Id="9270ed46-9ad3-4cf4-a739-37b7f6f2b7ef" name="IsUnsafe" value="false">
+                      <elementDefinition Id="6badf16e-896e-4c9a-bdeb-2a191886318c" />
+                    </propertyInstance>
+                    <elementDefinition Id="a87ee1ff-238b-49b6-81f4-b712efb9c191" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="11f1e05c-d34c-4306-be9e-fb64011e3982">
+                    <propertyInstance Id="a1e31a08-cca4-42a4-a9a3-3396ee75b78a" name="Inheritance" value="none">
+                      <elementDefinition Id="4767881f-15fb-46e1-8f34-1c7fa71f944f" />
+                    </propertyInstance>
+                    <elementDefinition Id="6d645794-00ca-46b4-85eb-d85641e22a1d" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="59f67657-fec3-49fc-a8ea-2077306ea344">
+                    <propertyInstance Id="7c3f27a5-ed72-4772-877e-e74ee5cf3503" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="3ae2371d-837d-4ea8-bc36-7ff43f63d95a" />
+                    </propertyInstance>
+                    <elementDefinition Id="3ab1aae0-f043-4575-b410-12bd08337481" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="3dcd76a4-f179-4ac0-9b75-9ba54cc88115">
+                    <propertyInstance Id="68860425-fec1-4d74-b7d7-05959165527d" name="Set" value="none">
+                      <elementDefinition Id="5643cb30-e6c6-437b-9680-c659030ed493" />
+                    </propertyInstance>
+                    <elementDefinition Id="938b6519-307f-4d14-87fa-575d09b106bb" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="54b4a4e1-3eaf-4807-a4ba-e1a1a24a7c6a" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="333cc41e-7fa8-451c-830f-3a1238f23f4f" LastKnownName="IIdentityStore" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="d750bfa6-b75a-463f-850b-e578bad83f01" name="TokenManager" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="d61801db-a542-402f-9d1b-22aa6142f540" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FOlav%2FSource%2FRepos%2FAsp.Net-Identity-RC1-sample-app%2FWebApplication%2Fpackages%2FMicrosoft.AspNet.Identity.Core.1.0.0-rc1%2Flib%2Fnet45%2FMicrosoft.AspNet.Identity.Core.dll Namespace%3DMicrosoft.AspNet.Identity Type%3DTokenManager Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FOlav%2FSource%2FRepos%2FAsp.Net-Identity-RC1-sample-app%2FWebApplication%2Fpackages%2FMicrosoft.AspNet.Identity.Core.1.0.0-rc1%2Flib%2Fnet45%2FMicrosoft.AspNet.Identity.Core.dll Namespace%3DMicrosoft.AspNet.Identity Type%3DIIdentityStore)])" tag="ViewCode">
+                <elementDefinition Id="4af4012f-87d2-45ea-93d4-8e17d99ca947" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="6b865222-b7c1-44eb-80fc-61fd12fd0bff" name="method" profile="CSharpProfile">
+                <elementDefinition Id="ea18156e-7b54-488c-8b62-638f7570c835" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="7cd5a017-664f-4e30-817d-d7975d20884e">
+                    <propertyInstance Id="f01e00ee-925e-4e59-b2c6-bc29a16faa5f" name="ClrAttributes">
+                      <elementDefinition Id="297e3d0e-5ea5-49f0-a382-c3521ccb5cb2" />
+                    </propertyInstance>
+                    <elementDefinition Id="2d884fdd-289c-4839-8925-b9440fa3900f" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="63a9bc73-1e1d-438a-b0bb-f8f3d4d1c304">
+                    <propertyInstance Id="83d41997-c54b-4c18-809c-87e4c4106379" name="IsPartial" value="false">
+                      <elementDefinition Id="2fa3d632-0d99-4235-aa20-4eae7829b46e" />
+                    </propertyInstance>
+                    <elementDefinition Id="0868415b-787a-42bd-8546-4af234d91bf7" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="5f5a0653-42ce-4cf5-993a-f3dcb4515232">
+                    <propertyInstance Id="2e6fcb59-280f-48bf-8ee7-f5369d5d1e6b" name="IsUnsafe" value="false">
+                      <elementDefinition Id="1031f282-96ea-46cd-8712-26084a899582" />
+                    </propertyInstance>
+                    <elementDefinition Id="7300b308-0a7b-4634-8864-36d544967c2f" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="100a70cb-ac3c-460d-a48f-31cf293e8d90">
+                    <propertyInstance Id="4cb6e8e0-8e1e-4379-a3c8-6ec9c59a6a7f" name="Inheritance" value="none">
+                      <elementDefinition Id="3e2f041d-ebd1-46f6-b246-dda01b272da0" />
+                    </propertyInstance>
+                    <elementDefinition Id="ad80e163-55fa-4ee0-ad24-64df0c6229f3" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="c41b8793-99cd-409e-8d0a-00ee30804266">
+                    <propertyInstance Id="c5f9110b-13e9-4468-945f-b79167f83968" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="ef70be2f-e474-427c-8f20-dab4d46f5d77" />
+                    </propertyInstance>
+                    <elementDefinition Id="98a3cb46-bbc3-4d68-adb8-6477573e0c71" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="97ac000f-dc21-4675-8f19-a0fbe8fa6816">
+                    <propertyInstance Id="c17b6685-fbdd-4a59-a0c6-6bd5b9ec4aa6" name="params" value="false">
+                      <elementDefinition Id="6bb98688-40a4-4df9-8cdb-a3b8d3766970" />
+                    </propertyInstance>
+                    <elementDefinition Id="7ba88e09-41d6-4312-83ea-b3f3857e2353" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="4270c05c-5768-4b8a-b62b-1e4369b64945" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7eb149eb-3e1c-4239-be1f-c3b5f569bc63" name="context" direction="In">
+                  <referencesInternal>
+                    <reference Id="bd5167d5-6ea8-474d-b989-9bc46f932230" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FOlav%2FSource%2FRepos%2FAsp.Net-Identity-RC1-sample-app%2FWebApplication%2Fpackages%2FMicrosoft.AspNet.Identity.Core.1.0.0-rc1%2Flib%2Fnet45%2FMicrosoft.AspNet.Identity.Core.dll Namespace%3DMicrosoft.AspNet.Identity Type%3DTokenManager Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FOlav%2FSource%2FRepos%2FAsp.Net-Identity-RC1-sample-app%2FWebApplication%2Fpackages%2FMicrosoft.AspNet.Identity.Core.1.0.0-rc1%2Flib%2Fnet45%2FMicrosoft.AspNet.Identity.Core.dll Namespace%3DMicrosoft.AspNet.Identity Type%3DIIdentityStore)]) ParameterIdentifier%3Dcontext" tag="ViewCode">
+                      <elementDefinition Id="3cc28713-e8ef-431e-a642-ca5b32c3a2df" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="9150877f-2f3d-41ff-a918-fedad3455175" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="333cc41e-7fa8-451c-830f-3a1238f23f4f" LastKnownName="IIdentityStore" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="435087da-6039-4375-b9c5-e2d1abfda500" name="AddAsync" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="56b679da-b5e5-47d9-9821-ac97e4903cbd" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FOlav%2FSource%2FRepos%2FAsp.Net-Identity-RC1-sample-app%2FWebApplication%2Fpackages%2FMicrosoft.AspNet.Identity.Core.1.0.0-rc1%2Flib%2Fnet45%2FMicrosoft.AspNet.Identity.Core.dll Namespace%3DMicrosoft.AspNet.Identity Type%3DTokenManager Member%3D(Name%3DAddAsync OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FOlav%2FSource%2FRepos%2FAsp.Net-Identity-RC1-sample-app%2FWebApplication%2Fpackages%2FMicrosoft.AspNet.Identity.Core.1.0.0-rc1%2Flib%2Fnet45%2FMicrosoft.AspNet.Identity.Core.dll Namespace%3DMicrosoft.AspNet.Identity Type%3DIToken)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Threading Type%3DCancellationToken)])" tag="ViewCode">
+                <elementDefinition Id="f06e1485-bcb9-4c8a-bbb3-1a9e56fa5d33" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="ae8949df-4ae4-484c-8c00-858e07dfa904" name="method" profile="CSharpProfile">
+                <elementDefinition Id="d910789b-2640-4673-8dd2-df6ef88a227e" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="dbfe3cf5-1081-4113-ab58-667d7024671a">
+                    <propertyInstance Id="b06b2c89-ceff-47e3-8be0-a68a56426a20" name="ClrAttributes">
+                      <elementDefinition Id="00cc4d91-095a-4754-88b3-03773e4b9913" />
+                    </propertyInstance>
+                    <elementDefinition Id="1db224ef-619f-485c-8bbb-5b928b6ef7ac" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="3d79e6ed-e180-43c5-beab-ae393b2a041d">
+                    <propertyInstance Id="eed79f23-f44f-4f8f-9b76-6d505f0c0f6e" name="IsPartial" value="false">
+                      <elementDefinition Id="503289fb-38fd-4287-961e-1b313bbfde84" />
+                    </propertyInstance>
+                    <elementDefinition Id="2d53cefd-d341-4dbf-9a2c-00b5f3aef692" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="e3977673-88c7-43f5-ae4d-8c62c1af9703">
+                    <propertyInstance Id="d985377d-941a-411e-8367-4ae87e7d27f9" name="IsUnsafe" value="false">
+                      <elementDefinition Id="2cd37487-1b94-4ae3-8879-009808f5418f" />
+                    </propertyInstance>
+                    <elementDefinition Id="1f296166-5837-4737-89b4-612e67210e55" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="a716c2ae-54bb-4b9d-9386-85ba04d1c0bc">
+                    <propertyInstance Id="127f2869-78d5-495f-8179-9331bfc6d050" name="Inheritance" value="none">
+                      <elementDefinition Id="43a5e93e-bf0e-4150-98c9-adb606dd702b" />
+                    </propertyInstance>
+                    <elementDefinition Id="6c756d9d-4149-44b0-95cd-683137ea9f45" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="ca9f4f56-0206-4358-90d2-9b4a05cc3863">
+                    <propertyInstance Id="ca03452c-9175-4e0a-a3a0-6946b6344af2" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="3fc7cee3-a971-4ba4-8983-28c3daae9c3e" />
+                    </propertyInstance>
+                    <elementDefinition Id="2eb11acb-cd87-4f2a-924b-bf82500f2fa9" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="88fd0734-fee2-49e0-b50f-7ca204107cda">
+                    <propertyInstance Id="66b2f340-193c-45be-8a6e-c6937eee3e5f" name="params" value="false">
+                      <elementDefinition Id="bd53d775-fc03-4fd9-873d-7c67618a87cd" />
+                    </propertyInstance>
+                    <elementDefinition Id="fc2f715e-c024-48e0-9131-accc3bcfc123" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="8de550d1-e2e0-4cc0-b393-9262c3716b1d" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c13c387b-d34a-4e16-a604-c2951ded9fb3" direction="Return">
+                  <elementDefinition Id="ab2752b2-624b-471f-b698-973c8026a5ae" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="a0f779ee-be7f-4894-9398-848db1f20c9f" LastKnownName="Task&lt;IdentityResult‎&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b347ab08-07fc-4a01-a381-a14082f58815" name="token" direction="In">
+                  <referencesInternal>
+                    <reference Id="c92f6e9c-af33-4c3e-ba34-1b2d3f274aa5" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FOlav%2FSource%2FRepos%2FAsp.Net-Identity-RC1-sample-app%2FWebApplication%2Fpackages%2FMicrosoft.AspNet.Identity.Core.1.0.0-rc1%2Flib%2Fnet45%2FMicrosoft.AspNet.Identity.Core.dll Namespace%3DMicrosoft.AspNet.Identity Type%3DTokenManager Member%3D(Name%3DAddAsync OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FOlav%2FSource%2FRepos%2FAsp.Net-Identity-RC1-sample-app%2FWebApplication%2Fpackages%2FMicrosoft.AspNet.Identity.Core.1.0.0-rc1%2Flib%2Fnet45%2FMicrosoft.AspNet.Identity.Core.dll Namespace%3DMicrosoft.AspNet.Identity Type%3DIToken)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Threading Type%3DCancellationToken)]) ParameterIdentifier%3Dtoken" tag="ViewCode">
+                      <elementDefinition Id="2e81ec39-3f7f-435a-ae31-d4c943a4aa30" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="d9f80cbd-d1ef-40c4-a377-66c120fa2813" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="2eed9e96-fc2f-4e76-a13b-2be0cccb555f" LastKnownName="IToken" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="000516a5-7d0d-4a84-b9b7-32b1dba31b2e" name="cancellationToken" direction="In">
+                  <referencesInternal>
+                    <reference Id="56bfd849-bb26-457b-aab5-45ea295d2b79" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FOlav%2FSource%2FRepos%2FAsp.Net-Identity-RC1-sample-app%2FWebApplication%2Fpackages%2FMicrosoft.AspNet.Identity.Core.1.0.0-rc1%2Flib%2Fnet45%2FMicrosoft.AspNet.Identity.Core.dll Namespace%3DMicrosoft.AspNet.Identity Type%3DTokenManager Member%3D(Name%3DAddAsync OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FOlav%2FSource%2FRepos%2FAsp.Net-Identity-RC1-sample-app%2FWebApplication%2Fpackages%2FMicrosoft.AspNet.Identity.Core.1.0.0-rc1%2Flib%2Fnet45%2FMicrosoft.AspNet.Identity.Core.dll Namespace%3DMicrosoft.AspNet.Identity Type%3DIToken)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Threading Type%3DCancellationToken)]) ParameterIdentifier%3DcancellationToken" tag="ViewCode">
+                      <elementDefinition Id="dee72761-7526-4cc8-8164-6e007b1d88a7" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="00f18b53-a702-484b-9cf3-68d54c236d5f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3b860cf8-a4f6-4946-a889-042992d5233c" LastKnownName="CancellationToken" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="40297f54-4e98-4bc8-abef-c6814fd2e414" name="FindAsync" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="d46ea525-42ac-47fa-83b7-bf16dbcc3ce2" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FOlav%2FSource%2FRepos%2FAsp.Net-Identity-RC1-sample-app%2FWebApplication%2Fpackages%2FMicrosoft.AspNet.Identity.Core.1.0.0-rc1%2Flib%2Fnet45%2FMicrosoft.AspNet.Identity.Core.dll Namespace%3DMicrosoft.AspNet.Identity Type%3DTokenManager Member%3D(Name%3DFindAsync OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DBoolean)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Threading Type%3DCancellationToken)])" tag="ViewCode">
+                <elementDefinition Id="c3dc04f7-a382-414f-a7c5-22c328469a2f" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="85b31987-0450-48bb-9920-9a19a0cf687f" name="method" profile="CSharpProfile">
+                <elementDefinition Id="78a2031a-ffbc-45ae-ac02-69b31fcaa5e0" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="312c4508-b812-4ab5-b77f-5108b53801d7">
+                    <propertyInstance Id="b617cac4-c495-486a-9909-2d1b8717e0b4" name="ClrAttributes">
+                      <elementDefinition Id="00bf4ed5-f895-4dbe-ac31-d0174005e414" />
+                    </propertyInstance>
+                    <elementDefinition Id="f59b44e2-c65f-44ac-ba08-ea616ae2f271" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="ca0022cd-c60b-4226-a685-c32f18665c00">
+                    <propertyInstance Id="5a8bbdc8-da2d-4bf1-934e-8ff20da5a6dd" name="IsPartial" value="false">
+                      <elementDefinition Id="dab85987-9648-4abc-85e1-151b0a32aeb3" />
+                    </propertyInstance>
+                    <elementDefinition Id="22e5bf03-1dec-41f7-adcd-cad9a2bff5b9" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="845b01ec-525d-4c97-a8a2-61ef5f511afd">
+                    <propertyInstance Id="fe5e2223-d16f-470c-884f-ce959711abc0" name="IsUnsafe" value="false">
+                      <elementDefinition Id="35b4a8ff-32eb-4ae1-9e55-817b269b4d04" />
+                    </propertyInstance>
+                    <elementDefinition Id="b8e473ae-855e-44bf-adcf-3912badc127f" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="3d136aa0-f8a0-4895-9edd-7255ef9acd00">
+                    <propertyInstance Id="2f742e5e-390d-4bfa-bcfa-2e5ea5acb3e4" name="Inheritance" value="none">
+                      <elementDefinition Id="05f75fc6-adea-4b79-a5f7-1f9f609d63ef" />
+                    </propertyInstance>
+                    <elementDefinition Id="ca10a09f-7ef9-4cc9-b6bd-c3dca8985164" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="38a22c7e-b869-4944-8db2-a72fec95de4c">
+                    <propertyInstance Id="ebb4fb4e-44c1-488e-9c87-49c2350112d8" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="5aa55dd1-53a7-4e2f-9e40-df24a28b649a" />
+                    </propertyInstance>
+                    <elementDefinition Id="7edec107-3374-4990-9bd5-e0d68a9edef2" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="9c7c428a-b1c0-4994-9fe2-30935bb92be2">
+                    <propertyInstance Id="90e232fa-23a0-46bb-bcbb-fd1616dd45ff" name="params" value="false">
+                      <elementDefinition Id="74b8397e-d9c0-4b63-8eeb-c06aa070e1dc" />
+                    </propertyInstance>
+                    <elementDefinition Id="ef5cdc9d-3b9e-45b9-8725-f8875fcbe66d" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="b368033f-6a5f-4288-98e7-5d95a2fdd86f" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="83ce73bf-365b-4428-8840-128258e9afec" direction="Return">
+                  <elementDefinition Id="38d5d2ad-0a10-4aea-afa8-e82d189015d9" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="b7771049-5b6d-4a55-902e-67fcca43e3f7" LastKnownName="Task&lt;IToken‎&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ce90d9d5-1f7f-4890-90a4-7cb5fa9cd010" name="id" direction="In">
+                  <referencesInternal>
+                    <reference Id="4e7d95c0-ac22-4310-a92a-510eb05034b8" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FOlav%2FSource%2FRepos%2FAsp.Net-Identity-RC1-sample-app%2FWebApplication%2Fpackages%2FMicrosoft.AspNet.Identity.Core.1.0.0-rc1%2Flib%2Fnet45%2FMicrosoft.AspNet.Identity.Core.dll Namespace%3DMicrosoft.AspNet.Identity Type%3DTokenManager Member%3D(Name%3DFindAsync OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DBoolean)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Threading Type%3DCancellationToken)]) ParameterIdentifier%3Did" tag="ViewCode">
+                      <elementDefinition Id="f0ed06ec-6adc-4407-9845-662a942db5b0" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="f636ca54-d913-4f73-b5fc-77ed63d78726" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="bc0c7ff5-e079-4c2b-8db0-c996e20b3e9b" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="317f0495-a3f1-4f46-85ec-fc9b56a8255d" name="onlyIfValid" direction="In">
+                  <referencesInternal>
+                    <reference Id="fd084e7a-e4ef-4f55-8aef-bee053f27a31" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FOlav%2FSource%2FRepos%2FAsp.Net-Identity-RC1-sample-app%2FWebApplication%2Fpackages%2FMicrosoft.AspNet.Identity.Core.1.0.0-rc1%2Flib%2Fnet45%2FMicrosoft.AspNet.Identity.Core.dll Namespace%3DMicrosoft.AspNet.Identity Type%3DTokenManager Member%3D(Name%3DFindAsync OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DBoolean)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Threading Type%3DCancellationToken)]) ParameterIdentifier%3DonlyIfValid" tag="ViewCode">
+                      <elementDefinition Id="a8f879d7-759d-4bff-90b1-7d01de127034" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="18b8e3c1-b3a6-472a-b494-4d08d515e2e6" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="196c232f-8949-4293-b559-05e44b6e9c63" LastKnownName="Boolean" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="9b6e926c-060f-4ab1-b968-1b6908b37b88" name="cancellationToken" direction="In">
+                  <referencesInternal>
+                    <reference Id="f1a4d973-718e-4966-a564-91b33d564578" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FOlav%2FSource%2FRepos%2FAsp.Net-Identity-RC1-sample-app%2FWebApplication%2Fpackages%2FMicrosoft.AspNet.Identity.Core.1.0.0-rc1%2Flib%2Fnet45%2FMicrosoft.AspNet.Identity.Core.dll Namespace%3DMicrosoft.AspNet.Identity Type%3DTokenManager Member%3D(Name%3DFindAsync OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DBoolean)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Threading Type%3DCancellationToken)]) ParameterIdentifier%3DcancellationToken" tag="ViewCode">
+                      <elementDefinition Id="5259b9d5-7ef4-4273-9de8-8f513be9951c" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="61df2513-a742-4a9e-aa69-bb2b2c1b4e48" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3b860cf8-a4f6-4946-a889-042992d5233c" LastKnownName="CancellationToken" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="ec407fcc-2542-4015-a85d-c2b88dd1423e" name="RemoveAsync" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="9af63f5e-e905-425a-82e2-e361300750e8" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FOlav%2FSource%2FRepos%2FAsp.Net-Identity-RC1-sample-app%2FWebApplication%2Fpackages%2FMicrosoft.AspNet.Identity.Core.1.0.0-rc1%2Flib%2Fnet45%2FMicrosoft.AspNet.Identity.Core.dll Namespace%3DMicrosoft.AspNet.Identity Type%3DTokenManager Member%3D(Name%3DRemoveAsync OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Threading Type%3DCancellationToken)])" tag="ViewCode">
+                <elementDefinition Id="35777f5f-2bb1-4b8e-92fc-968b9d295ac1" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="c85ccf23-a730-4210-866f-0c75f6e785bc" name="method" profile="CSharpProfile">
+                <elementDefinition Id="904b80da-7334-4a6b-9415-bcb998b7ad74" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="59882c15-3e72-4141-b890-e01d565e73b1">
+                    <propertyInstance Id="baa3977a-df55-49b2-9217-8762c59cd5a1" name="ClrAttributes">
+                      <elementDefinition Id="85a28a85-26e6-45a7-ae20-44007f654d26" />
+                    </propertyInstance>
+                    <elementDefinition Id="6efefeac-974a-4f13-8769-28a3209984fe" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="c58c9e7e-30da-483f-9e27-e295d6548ece">
+                    <propertyInstance Id="2588f565-312d-4764-afca-45b8b3b071b1" name="IsPartial" value="false">
+                      <elementDefinition Id="cb24cc48-0d15-4442-b975-a209ef8983fe" />
+                    </propertyInstance>
+                    <elementDefinition Id="09f06568-1faa-463a-835c-7289c0663bf9" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="d8531672-e0c2-4b25-b492-4bef10e9159c">
+                    <propertyInstance Id="d3a77efe-7367-479d-af85-4e57b11451be" name="IsUnsafe" value="false">
+                      <elementDefinition Id="7364159f-4c18-4076-85dd-a9ad3278373a" />
+                    </propertyInstance>
+                    <elementDefinition Id="2024faa1-2b15-46f1-8bff-cc9be147c309" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="449e0e33-c60e-41fd-9682-12ad9986dc42">
+                    <propertyInstance Id="ff68b234-27e6-4279-b981-1b68eb65cc65" name="Inheritance" value="none">
+                      <elementDefinition Id="8f6b3aeb-bc1f-4e1e-9352-bc68fd4318fc" />
+                    </propertyInstance>
+                    <elementDefinition Id="5e449f71-7691-4448-9695-c684f5cd0c9c" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="97001737-6a35-4558-822c-55ff0e6c69fa">
+                    <propertyInstance Id="5b7c3cba-c388-405e-befd-909fdf8d4f8d" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="9b13f28d-0f62-464d-8e41-466993b82e40" />
+                    </propertyInstance>
+                    <elementDefinition Id="1f8d62fb-7660-4d2e-8577-437d57f39309" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="b86fbe39-b2bc-4908-bc2b-75a41ce26708">
+                    <propertyInstance Id="738c79d6-4f50-458e-90bd-ddf7e41ad931" name="params" value="false">
+                      <elementDefinition Id="66087568-59cf-4184-8de8-99d7a2d0b27c" />
+                    </propertyInstance>
+                    <elementDefinition Id="7decf581-36e6-404f-8d4a-d7f989b6feb1" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="affcce4a-1257-49d4-87f6-25622114b339" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c6e07b8d-69df-420c-ace6-7a4ade5d439f" direction="Return">
+                  <elementDefinition Id="9e8b9fd8-c727-48f2-80cb-bf40c02af2b3" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="a0f779ee-be7f-4894-9398-848db1f20c9f" LastKnownName="Task&lt;IdentityResult‎&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="06f0feac-c705-4d24-8af7-c3e509f25705" name="id" direction="In">
+                  <referencesInternal>
+                    <reference Id="4a40d316-c76a-45ab-bf44-29c5cc578688" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FOlav%2FSource%2FRepos%2FAsp.Net-Identity-RC1-sample-app%2FWebApplication%2Fpackages%2FMicrosoft.AspNet.Identity.Core.1.0.0-rc1%2Flib%2Fnet45%2FMicrosoft.AspNet.Identity.Core.dll Namespace%3DMicrosoft.AspNet.Identity Type%3DTokenManager Member%3D(Name%3DRemoveAsync OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Threading Type%3DCancellationToken)]) ParameterIdentifier%3Did" tag="ViewCode">
+                      <elementDefinition Id="525c0d33-cb20-4db7-aef6-fbb0056b6ea4" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="934b20b5-bac3-4c95-8fa9-d7d1bbb8369b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="bc0c7ff5-e079-4c2b-8db0-c996e20b3e9b" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="d0798b71-c17a-4e12-b7ab-bbd695c00406" name="cancellationToken" direction="In">
+                  <referencesInternal>
+                    <reference Id="002457e7-ea60-4c59-86d1-3bf2b3f9c295" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FOlav%2FSource%2FRepos%2FAsp.Net-Identity-RC1-sample-app%2FWebApplication%2Fpackages%2FMicrosoft.AspNet.Identity.Core.1.0.0-rc1%2Flib%2Fnet45%2FMicrosoft.AspNet.Identity.Core.dll Namespace%3DMicrosoft.AspNet.Identity Type%3DTokenManager Member%3D(Name%3DRemoveAsync OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Threading Type%3DCancellationToken)]) ParameterIdentifier%3DcancellationToken" tag="ViewCode">
+                      <elementDefinition Id="9007aa6d-3359-40f0-acc3-e499e635e3d5" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="661fe896-b9b0-4c7e-a0f7-67d48888ee4b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3b860cf8-a4f6-4946-a889-042992d5233c" LastKnownName="CancellationToken" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="2eed9e96-fc2f-4e76-a13b-2be0cccb555f" name="IToken" isAbstract="false" isLeaf="false" cachedFullName="ASP.NET identity::Microsoft::AspNet::Identity::IToken">
+        <elementDefinition Id="16a47883-e415-4b80-ac15-ee67390f7509" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="b7771049-5b6d-4a55-902e-67fcca43e3f7" name="Task&lt;IToken‎&gt;" isAbstract="false" isLeaf="false" cachedFullName="ASP.NET identity::System::Threading::Tasks::Task&lt;IToken‎&gt;">
+        <elementDefinition Id="f519690a-48b9-4da3-b048-3625508b8f3c" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="cb323cd6-ee68-4ec0-966f-6844f8dd42ee" name="ASP.NET identity">
     <elementDefinition Id="14a8e42d-5dd6-4f69-8a74-15b74c1e02d1" />
+    <profileInstances>
+      <packageHasProfileInstances Id="0a002ecd-0909-42e0-95a1-d31664e0d9e4">
+        <profileInstance Id="d00f54e6-59e5-4c11-9f43-5470dd5903d6" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="3b1b5aa0-3470-450d-8f35-3ff3b5ea40ac">
+        <profileInstance Id="71861f95-4c42-4ba0-9f3a-d6fd19bb1064" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="a9613996-98e5-47a6-a9d2-8c59e4188114">
+        <profileInstance Id="beef6b24-bfc2-43b3-852d-7652e018c137" name="CSharpProfile">
+          <elementDefinition Id="3cc6d570-225d-4103-a6e3-4b86d3d30c31" />
+        </profileInstance>
+        <elementDefinition Id="729996f7-1566-4ac9-bd68-7e9a7fa8ef02" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </logicalClassDesignerModel>

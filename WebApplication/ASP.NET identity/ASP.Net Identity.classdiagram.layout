@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 13, 21.75" name="ASP.Net Identity">
+<logicalClassDesignerDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 13, 23.875" name="ASP.Net Identity">
   <logicalClassDesignerModelMoniker Id="1226584d-a357-4449-bbbd-1f3feada29b1" />
   <nestedChildShapes>
     <classShape Id="5f92cbc9-347b-41b7-8312-a5db0083e538" absoluteBounds="1, 0.5, 3.25, 3.10971055984497" hideQualifiedName="true" increaseHeight="0.18800345897674561" customColor="181, 193, 223">
@@ -23,7 +23,7 @@
         <OperationElementListCompartment Id="3c9d8449-2401-4217-b7b5-18fa5a96b14e" absoluteBounds="4.765, 2.0272887320319812, 7.9700000000000006, 1.4824218278129895" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(6 : 3.60971055984497); (6 : 4.125)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="*" targetMultiplicity="1">
+    <associationConnector edgePoints="[(6 : 3.60971055984497); (6 : 4.125)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="113, 111, 110" sourceMultiplicity="*" targetMultiplicity="1">
       <associationMoniker Id="bcc95f56-4442-4357-90f6-ad182b3757bb" />
       <relativeChildShapes />
       <nodes>
@@ -38,7 +38,7 @@
         <OperationElementListCompartment Id="c76e0087-c4a5-4707-9db6-c1eb546ead4e" absoluteBounds="1.89, 9.0468199969331415, 8.9699999999999989, 1.1621093377470972" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(4.5625 : 8); (4.5625 : 7.23471055984497)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="*" targetMultiplicity="1">
+    <associationConnector edgePoints="[(4.5625 : 8); (4.5625 : 7.23471055984497)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="113, 111, 110" sourceMultiplicity="*" targetMultiplicity="1">
       <associationMoniker Id="7ea50090-0da1-46eb-bfff-c28f7372fb26" />
       <relativeChildShapes />
       <nodes>
@@ -53,7 +53,7 @@
         <OperationElementListCompartment Id="4e541604-c1a9-4c5d-81a0-1b55d8ea88ef" absoluteBounds="0.515, 12.27728873203198, 8.0949999999999989, 1.3222655827800429" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(1.40625 : 10.75); (1.40625 : 7.23471055984497)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="*" targetMultiplicity="1">
+    <associationConnector edgePoints="[(1.40625 : 10.75); (1.40625 : 7.23471055984497)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="113, 111, 110" sourceMultiplicity="*" targetMultiplicity="1">
       <associationMoniker Id="68bd86b4-9dcf-4a08-97d7-4997e4e55038" />
       <relativeChildShapes />
       <nodes>
@@ -83,5 +83,12 @@
         <classShapeMoniker Id="7e240a40-2972-48ad-b297-03c8ee6e594e" />
       </nodes>
     </associationConnector>
+    <classShape Id="79f4ea6d-c889-47c0-b836-3ae832a3d89a" absoluteBounds="0.5, 21.75, 7.875, 1.8284605995813994" hideQualifiedName="false" increaseHeight="0.18800345897674561" customColor="181, 193, 223">
+      <classMoniker Id="a05c6551-eb9c-4c90-8ba7-206596361ec2" LastKnownName="TokenManager" />
+      <nestedChildShapes>
+        <AttributeElementListCompartment Id="725e5566-7c19-46e6-baf3-3cdb00c47a4d" absoluteBounds="0.515, 22.265335639317829, 7.8450000000000006, 0.36132811258236563" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <OperationElementListCompartment Id="a6fc61f2-dc34-4707-9e1a-e52ea7b4af3f" absoluteBounds="0.515, 22.636663751900198, 7.8450000000000006, 0.84179684768120455" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </logicalClassDesignerDiagram>
