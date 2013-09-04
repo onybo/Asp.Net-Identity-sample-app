@@ -99,8 +99,7 @@ namespace WebApplication.Controllers
                     var result = await new UserManager(IdentityManager).CreateLocalUserAsync(user, model.Password);
                     if (result.Success)
                     {
-                        var cts = new CancellationTokenSource();
-                        var claims = AuthenticationManager.GetUserIdentityClaimsAsync(user.Id, new Claim[0], cts.Token);
+                        await AuthenticationManager.SignInAsync(OwinAuthManager, user.Id, isPersistent: false);
                         return RedirectToAction("Index", "Home");
                     }
                     else

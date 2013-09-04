@@ -99,9 +99,14 @@ namespace WebApplication.Controllers
                 var result = await new UserManager(IdentityManager).CreateLocalUserAsync(user, model.Password);
                 if (result.Success)
                 {
-                    var cts = new CancellationTokenSource();
-                    var claims = AuthenticationManager.GetUserIdentityClaimsAsync(user.Id, new Claim[0], cts.Token);
-                    return RedirectToAction("Index", "Home");
+                    var token = Guid.NewGuid();
+                    var tokenResult = await AuthenticationManager.RequireTokenConfirmationForSignInAsync(token.ToString(), user.Id, DateTime.Now.AddDays(2));
+                    if (tokenResult.Success)
+                    {
+                        return RedirectToAction("Registered", "Account", new { userId = user.Id.ToString(), token = token.ToString() });
+                    }
+                    else
+                        AddModelError(tokenResult, "RequireTokenConfirmation failed");
                 }
                 else
                 {
@@ -113,6 +118,24 @@ namespace WebApplication.Controllers
             return View(model);
         }
 
+        //
+        // GET: /Account/Register
+        [AllowAnonymous]
+        public ActionResult Registered(string userId, string token)
+        {
+            return View(new RegistrationViewModel{ UserId = userId, Token = token });
+        }
+
+                //
+        // GET: /Account/Register
+        [AllowAnonymous]
+        public async Task<ActionResult> Activate(string userId, string token)
+        {
+            var tokenResult = await AuthenticationManager.ConfirmSignInTokenAsync(token);
+            return RedirectToAction("Login", new {returnUrl="/home"});
+        }
+
+        
         //
         // POST: /Account/Disassociate
         [HttpPost]
