@@ -8,6 +8,7 @@
     <h1>Register success</h1>
     <p class="lead">In a real application we would have sent you an activation email with this activation link. You will not be able
     to log in until the account has been activated.</p>
+    <p>Your registered email that we would have sent to is: @Model.Email</p>
     <p>@Html.ActionLink("Click to activate", "Activate", new { userId = Model.UserId, token = Model.Token });
 </div>
 

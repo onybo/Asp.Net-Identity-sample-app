@@ -12,6 +12,7 @@ using Microsoft.Owin.Security;
 using WebCustomUser.Models;
 using Microsoft.AspNet.Identity.Owin;
 using System.Threading;
+using UserModel;
 
 namespace WebApplication.Controllers
 {
@@ -20,7 +21,16 @@ namespace WebApplication.Controllers
     {
         public AccountController()
         {
-            IdentityManager = new IdentityManager(new IdentityStore());
+            IdentityManager = new IdentityManager(new CustomIdentityStore(
+                new IdentityDbContext<CustomUser, 
+                                      CustomUserClaim, 
+                                      CustomUserSecret, 
+                                      CustomUserLogin,
+                                      CustomRole, 
+                                      CustomUserRole, 
+                                      CustomToken, 
+                                      CustomUserManagement>()
+            ));
             AuthenticationManager = new AuthenticationManager(new IdentityAuthenticationOptions(), IdentityManager);
         }
 
@@ -95,15 +105,15 @@ namespace WebApplication.Controllers
             {
 
                 // Create a profile, password, and link the local login before signing in the user
-                User user = new User(model.UserName);
-                var result = await new UserManager(IdentityManager).CreateLocalUserAsync(user, model.Password);
+                var user = new CustomUser(model.UserName, model.Email);
+                var result = await IdentityManager.Users.CreateLocalUserAsync(user, model.Password);
                 if (result.Success)
                 {
                     var token = Guid.NewGuid();
                     var tokenResult = await AuthenticationManager.RequireTokenConfirmationForSignInAsync(token.ToString(), user.Id, DateTime.Now.AddDays(2));
                     if (tokenResult.Success)
                     {
-                        return RedirectToAction("Registered", "Account", new { userId = user.Id.ToString(), token = token.ToString() });
+                        return RedirectToAction("Registered", "Account", new { userId = user.Id.ToString(), token = token.ToString(), email = model.Email });
                     }
                     else
                         AddModelError(tokenResult, "RequireTokenConfirmation failed");
@@ -121,9 +131,9 @@ namespace WebApplication.Controllers
         //
         // GET: /Account/Register
         [AllowAnonymous]
-        public ActionResult Registered(string userId, string token)
+        public ActionResult Registered(string userId, string token, string email)
         {
-            return View(new RegistrationViewModel{ UserId = userId, Token = token });
+            return View(new RegistrationViewModel{ UserId = userId, Token = token, Email = email });
         }
 
                 //
@@ -144,7 +154,7 @@ namespace WebApplication.Controllers
         {
             ManageMessageId? message = null;
             string userId = User.Identity.GetUserId();
-            var result = await new LoginManager(IdentityManager).RemoveLoginAsync(User.Identity.GetUserId(), loginProvider, providerKey);
+            var result = await IdentityManager.Logins.RemoveLoginAsync(User.Identity.GetUserId(), loginProvider, providerKey);
             if (result.Success)
             {
                 message = ManageMessageId.RemoveLoginSuccess;
@@ -162,7 +172,7 @@ namespace WebApplication.Controllers
                 : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
                 : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
                 : "";
-            ViewBag.HasLocalPassword = await new LoginManager(IdentityManager).HasLocalLoginAsync(User.Identity.GetUserId());
+            ViewBag.HasLocalPassword = await IdentityManager.Logins.HasLocalLoginAsync(User.Identity.GetUserId());
             ViewBag.ReturnUrl = Url.Action("Manage");
             return View();
         }
@@ -174,14 +184,14 @@ namespace WebApplication.Controllers
         public async Task<ActionResult> Manage(ManageUserViewModel model)
         {
             string userId = User.Identity.GetUserId();
-            bool hasLocalLogin = await new LoginManager(IdentityManager).HasLocalLoginAsync(userId);
+            bool hasLocalLogin = await IdentityManager.Logins.HasLocalLoginAsync(userId);
             ViewBag.HasLocalPassword = hasLocalLogin;
             ViewBag.ReturnUrl = Url.Action("Manage");
             if (hasLocalLogin)
             {
                 if (ModelState.IsValid)
                 {
-                    var changePasswordSucceeded = await new PasswordManager(IdentityManager).ChangePasswordAsync(User.Identity.GetUserName(), model.OldPassword, model.NewPassword);
+                    var changePasswordSucceeded = await IdentityManager.Passwords.ChangePasswordAsync(User.Identity.GetUserName(), model.OldPassword, model.NewPassword);
                     if (changePasswordSucceeded.Success)
                     {
                         return RedirectToAction("Manage", new { Message = ManageMessageId.ChangePasswordSuccess });
@@ -206,7 +216,7 @@ namespace WebApplication.Controllers
                     try
                     {
                         // Create the local login info and link the local account to the user
-                        var result = await new LoginManager(IdentityManager).AddLocalLoginAsync(userId, User.Identity.GetUserName(), model.NewPassword);
+                        var result = await IdentityManager.Logins.AddLocalLoginAsync(userId, User.Identity.GetUserName(), model.NewPassword);
                         if (result.Success)
                         {
                             return RedirectToAction("Manage", new { Message = ManageMessageId.SetPasswordSuccess });
