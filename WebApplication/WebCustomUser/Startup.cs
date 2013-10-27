@@ -1,4 +1,9 @@
-﻿using Owin;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Owin;
+using System;
+using UserModel;
+using WebCustomUser.Models;
 
 namespace WebCustomUser
 {
