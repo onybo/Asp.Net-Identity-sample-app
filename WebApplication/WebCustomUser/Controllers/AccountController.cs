@@ -205,6 +205,7 @@ namespace WebApplication.Controllers
                 : "";
             ViewBag.HasLocalPassword = HasPassword();
             ViewBag.ReturnUrl = Url.Action("Manage");
+            ViewBag.UserName = User.Identity.Name;
             return View();
         }
 
