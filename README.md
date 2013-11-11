@@ -1,7 +1,7 @@
 Asp.Net-Identity-sample-app
 ===============================
 
-Asp.Net Identity sample app <br>
+<strong>Asp.Net Identity sample app</strong> <br>
 
 WebApplication solution <br>
 WebCustomUser project demonstrates use of UserManage.UserConfirmationTokens to generate user account activation tokens.
