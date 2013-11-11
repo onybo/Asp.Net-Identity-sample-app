@@ -6,35 +6,35 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
-using UserModel;
-using WebCustomUser.Models;
-using WebCustomUser;
-using Microsoft.AspNet.Identity.Owin;
+using MongoUser.Models;
+using MongoUser.Identity.MongoDb;
+using MongoDB.Driver;
+using System.Configuration;
 
-
-namespace WebApplication.Controllers
+namespace MongoUser.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
-        public AccountController()
-            : this(new UserManager<CustomUser>(new UserStore<CustomUser>(new CustomDbContext())))
+        private static MongoDatabase MongoDatabaseInstance()
         {
-            if (Startup.DataProtectionProvider != null)
-            {
-                this.UserManager.PasswordResetTokens = new DataProtectorTokenProvider(Startup.DataProtectionProvider.Create("PasswordReset"));
-                this.UserManager.UserConfirmationTokens = new DataProtectorTokenProvider(Startup.DataProtectionProvider.Create("ConfirmUser"));
-            }
+            var client = new MongoClient(ConfigurationManager.ConnectionStrings["MongoServerSettings"].ConnectionString);
+            var server = client.GetServer();
+            return server.GetDatabase("IdentityDatabase");
         }
 
-        public AccountController(UserManager<CustomUser> userManager)
+        public AccountController()
+            : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(MongoDatabaseInstance())))
+        {
+        }
+
+        public AccountController(UserManager<ApplicationUser> userManager)
         {
             UserManager = userManager;
         }
 
-        public UserManager<CustomUser> UserManager { get; private set; }
+        public UserManager<ApplicationUser> UserManager { get; private set; }
 
         //
         // GET: /Account/Login
@@ -70,7 +70,6 @@ namespace WebApplication.Controllers
             return View(model);
         }
 
-
         //
         // GET: /Account/Register
         [AllowAnonymous]
@@ -88,13 +87,12 @@ namespace WebApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Create a profile, password, and link the local login before signing in the user
-                var user = new CustomUser(model.UserName, model.Email);
+                var user = new ApplicationUser() { UserName = model.UserName };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    var token = UserManager.UserConfirmationTokens.Generate(new UserToken() { CreationDate = DateTime.Now, UserId = user.Id, Value = Guid.NewGuid().ToString() });
-                    return RedirectToAction("Registered", "Account", new { userId = user.Id.ToString(), token = token, email = model.Email });
+                    await SignInAsync(user, isPersistent: false);
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
@@ -104,23 +102,6 @@ namespace WebApplication.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
-        }
-
-        //
-        // GET: /Account/Register
-        [AllowAnonymous]
-        public ActionResult Registered(string userId, string token, string email)
-        {
-            return View(new RegistrationViewModel{ UserId = userId, Token = token, Email = email });
-        }
-
-                //
-        // GET: /Account/Register
-        [AllowAnonymous]
-        public async Task<ActionResult> Activate(string userId, string token)
-        {
-            var userToken = UserManager.UserConfirmationTokens.Validate(token);            
-            return RedirectToAction("Login", new {returnUrl="/home"});
         }
 
         //
@@ -140,6 +121,21 @@ namespace WebApplication.Controllers
                 message = ManageMessageId.Error;
             }
             return RedirectToAction("Manage", new { Message = message });
+        }
+
+        //
+        // GET: /Account/Manage
+        public ActionResult Manage(ManageMessageId? message)
+        {
+            ViewBag.StatusMessage =
+                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
+                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
+                : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
+                : message == ManageMessageId.Error ? "An error has occurred."
+                : "";
+            ViewBag.HasLocalPassword = HasPassword();
+            ViewBag.ReturnUrl = Url.Action("Manage");
+            return View();
         }
 
         //
@@ -194,22 +190,6 @@ namespace WebApplication.Controllers
         }
 
         //
-        // GET: /Account/Manage
-        public ActionResult Manage(ManageMessageId? message)
-        {
-            ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
-                : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
-                : message == ManageMessageId.Error ? "An error has occurred."
-                : "";
-            ViewBag.HasLocalPassword = HasPassword();
-            ViewBag.ReturnUrl = Url.Action("Manage");
-            ViewBag.UserName = User.Identity.Name;
-            return View();
-        }
-
-        //
         // POST: /Account/ExternalLogin
         [HttpPost]
         [AllowAnonymous]
@@ -218,16 +198,6 @@ namespace WebApplication.Controllers
         {
             // Request a redirect to the external login provider
             return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
-        }
-
-        private bool VerifyExternalIdentity(ClaimsIdentity id, string loginProvider)
-        {
-            if (id == null)
-            {
-                return false;
-            }
-            Claim claim = id.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier");
-            return claim != null && claim.Issuer == loginProvider;
         }
 
         //
@@ -256,6 +226,7 @@ namespace WebApplication.Controllers
                 return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { UserName = loginInfo.DefaultUserName });
             }
         }
+
         //
         // POST: /Account/LinkLogin
         [HttpPost]
@@ -303,7 +274,7 @@ namespace WebApplication.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new CustomUser() { UserName = model.UserName };
+                var user = new ApplicationUser() { UserName = model.UserName };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
@@ -369,7 +340,7 @@ namespace WebApplication.Controllers
             }
         }
 
-        private async Task SignInAsync(CustomUser user, bool isPersistent)
+        private async Task SignInAsync(ApplicationUser user, bool isPersistent)
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
             var identity = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
@@ -416,8 +387,7 @@ namespace WebApplication.Controllers
 
         private class ChallengeResult : HttpUnauthorizedResult
         {
-            public ChallengeResult(string provider, string redirectUri)
-                : this(provider, redirectUri, null)
+            public ChallengeResult(string provider, string redirectUri) : this(provider, redirectUri, null)
             {
             }
 
