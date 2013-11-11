@@ -1,7 +1,7 @@
 Asp.Net-Identity-sample-app
 ===============================
 
-Asp.Net Identity sample app
+Asp.Net Identity sample app <br>
 
 WebApplication solution <br>
 WebCustomUser project demonstrates use of UserManage.UserConfirmationTokens to generate user account activation tokens.
@@ -13,5 +13,5 @@ MongoUser project <br>
 MongoDb based UserStore. A ASP.NET Identity implementation with no dependencies on Microsoft.AspNet.Identity.EntitFramework.
 Only Identity.Core needed.
 
-CustomUser solution
+CustomUser solution <br>
 Shows how to use ASP.NET Identity using a regular DbContext (no need for IdentityDbContext)
